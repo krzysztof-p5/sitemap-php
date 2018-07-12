@@ -1,9 +1,9 @@
 {
-    "name": "evert/sitemap-php",
+    "name": "krzysztof-p5/sitemap-php",
     "type": "library",
     "description": "Lightweight library for generating Google sitemap XML files",
     "keywords": ["Sitemap"],
-    "homepage": "https://github.com/evert/sitemap-php/",
+    "homepage": "https://github.com/krzysztof-p5/sitemap-php/",
     "license": "MIT",
     "authors": [
         {
@@ -13,6 +13,10 @@
         {
             "name": "Evert Pot",
             "email": "evert@rooftopsolutions.nl"
+        },
+        {
+            "name": "Krzysztof Marciniak",
+            "email": "krzysztof@poczta5.com"
         }
     ],
     "require": {
