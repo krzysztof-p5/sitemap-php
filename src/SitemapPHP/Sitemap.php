@@ -179,7 +179,7 @@ class Sitemap {
 	 * @param string|int|null $lastmod The date of last modification of url. Unix timestamp or any English textual datetime description.
 	 * @return Sitemap
 	 */
-	public function addItem($loc, $priority = self::DEFAULT_PRIORITY, $changefreq = NULL, $lastmod = NULL) {
+	public function addItem($loc, $priority = self::DEFAULT_PRIORITY, $changefreq = NULL, $lastmod = NULL, $images = []) {
 		if (($this->getCurrentItem() % self::ITEM_PER_SITEMAP) == 0) {
 			if ($this->getWriter() instanceof \XMLWriter) {
 				$this->endSitemap();
@@ -196,6 +196,19 @@ class Sitemap {
 			$this->getWriter()->writeElement('changefreq', $changefreq);
 		if ($lastmod)
 			$this->getWriter()->writeElement('lastmod', $this->getLastModifiedDate($lastmod));
+		
+		if( is_array($images) && count($images) > 0 )
+		{
+			
+			foreach($images as $image )
+			{
+				$this->getWriter()->startElement('image:image');
+				$this->getWriter()->writeElement('image:loc', $image);
+				$this->getWriter()->endElement();				
+			}
+			
+		}
+			
 		$this->getWriter()->endElement();
 		return $this;
 	}
